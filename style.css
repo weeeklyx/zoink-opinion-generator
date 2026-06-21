@@ -1,0 +1,192 @@
+/* Глобальные переменные темы */
+:root {
+    --bg-color: #0b0b0d;
+    --card-bg: rgba(24, 24, 28, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --primary-orange: #ff9f0a;
+    --acu-pink: #ff0055;
+    --neon-blue: #0051ff;
+    --text-main: #f5f5f7;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    transition: background-color 0.5s ease;
+}
+
+/* Декоративная точка-сетка на фоне */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Стеклянная карточка интерфейса */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 440px;
+    border: 1px solid var(--border-color);
+    z-index: 1;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 81, 255, 0.1);
+}
+
+/* Красивый переливающийся заголовок */
+h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, #fff 0%, #a1a1a6 100%);
+    -webkit-background-clip: text;
+    background-clip: text; /* Исправили совместимость по ворчанию линтера */
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #86868b;
+    margin-bottom: 30px;
+}
+
+/* Кнопка */
+.btn-generate {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--neon-blue) 0%, #003199 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 81, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-generate:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 81, 255, 0.5), 0 0 15px rgba(0, 81, 255, 0.3);
+}
+
+.btn-generate:active {
+    transform: translateY(1px);
+}
+
+/* Экран вывода */
+.verdict-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(10, 10, 12, 0.8);
+    border-radius: 14px;
+    min-height: 180px;
+    text-align: left;
+    border-left: 4px solid var(--primary-orange);
+    transition: all 0.3s ease;
+}
+
+.waiting-text {
+    text-align: center; 
+    color: #636366; 
+    margin-top: 60px;
+}
+
+.opinion-text {
+    font-style: italic;
+    color: #a1a1a6;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.list-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 5px;
+}
+
+/* Каждая строчка топа плавно вылетает слева */
+.list-item {
+    font-size: 15px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: slideIn 0.3s forwards ease;
+}
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.top1-orange {
+    color: var(--primary-orange); 
+    font-weight: 700;
+}
+
+/* --- СТИЛИ ДЛЯ РЕЖИМА АНАРХИИ (ACU ТОП-1) --- */
+.acu-anarchy-bg {
+    background-color: #1a000a !important;
+}
+
+.card-anarchy {
+    animation: shake 0.15s infinite, neonGlowAcu 1s infinite alternate;
+    border-color: var(--acu-pink) !important;
+}
+
+.verdict-anarchy {
+    border-left-color: var(--acu-pink) !important;
+    box-shadow: inset 0 0 15px rgba(255, 0, 85, 0.1);
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    100% { transform: translate(-1px, -2px) rotate(-0.5deg); }
+}
+
+@keyframes neonGlowAcu {
+    from { box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 10px rgba(255, 0, 85, 0.2); }
+    to { box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 35px rgba(255, 0, 85, 0.5); }
+}
+
+.acu-blink {
+    color: var(--acu-pink) !important;
+    font-weight: 900 !important;
+    text-shadow: 0 0 8px var(--acu-pink);
+    animation: criticalBlink 0.3s infinite alternate;
+}
+
+@keyframes criticalBlink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}

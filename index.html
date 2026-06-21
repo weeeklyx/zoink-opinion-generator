@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoink Opinion Generator 🍔 | Pointercrate Edition</title>
+    <!-- Подключаем внешние стили -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card" id="mainCard">
+        <h1>Zoink Opinion Generator 🍔</h1>
+        <div class="subtitle">Пересчёт Pointercrate Demonlist на лету</div>
+
+        <!-- Кнопка вызывает строго определенную функцию из файла script.js -->
+        <button class="btn-generate" onclick="generateTop()">Спросить Монарха</button>
+
+        <div class="verdict-box" id="verdictBox">
+            <div id="verdictContent">
+                <div class="waiting-text">
+                    Ожидание вердикта... Топ стабилен.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Подключаем внешнюю логику в самом конце body -->
+    <script src="script.js"></script>
+</body>
+</html>
