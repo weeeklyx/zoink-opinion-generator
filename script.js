@@ -29,7 +29,7 @@ function generateTop() {
 
     // Тот самый 0.5% шанс на то, что Acu внезапно захватит Топ-1 списка
     // (Если хочешь потестить эффект чаще — временно поменяй 0.005 на 0.3)
-    const isAcuAnarchy = Math.random() < 0.005;
+    const isAcuAnarchy = Math.random() < 0.1;
 
     let htmlContent = "";
 
